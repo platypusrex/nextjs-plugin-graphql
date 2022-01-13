@@ -1,0 +1,38 @@
+{
+  "name": "nextjs-plugin-graphql",
+  "version": "0.1.0",
+  "author": "Frank Cooke",
+  "license": "MIT",
+  "description": "Next.js plugin to preprocess GraphQL Documents",
+  "keywords": ["nextjs", "webpack", "graphql"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platypusrex/nextjs-plugin-graphql.git"
+  },
+  "bugs": {
+    "url": "https://github.com/platypusrex/nextjs-plugin-graphql/issues"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "eslint \"index.js\"",
+    "lint:fix": "eslint --fix",
+    "release": "standard-version"
+  },
+  "dependencies": {
+    "@graphql-tools/webpack-loader": "^6.6.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.0.2",
+    "@commitlint/config-conventional": "^16.0.0",
+    "eslint": "^8.6.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "graphql": "^16.2.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.5.1",
+    "standard-version": "^9.3.2"
+  }
+}
