@@ -1,4 +1,6 @@
 # Next.js + GraphQL Documents
+[![npm package](https://img.shields.io/npm/v/nextjs-plugin-graphql/latest.svg)](https://www.npmjs.com/package/nextjs-plugin-graphql)
+[![License](https://img.shields.io/npm/l/nextjs-plugin-graphql.svg)](https://github.com/platypusrex/nextjs-plugin-graphql/blob/master/LICENSE)
 
 [Next.js](https://github.com/zeit/next.js) plugin for preprocessing GraphQL Documents (operations, fragments and SDL)
 
