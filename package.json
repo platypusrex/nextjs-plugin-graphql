@@ -1,6 +1,6 @@
 {
   "name": "nextjs-plugin-graphql",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Frank Cooke",
   "license": "MIT",
   "description": "Next.js plugin to preprocess GraphQL Documents",
@@ -27,7 +27,7 @@
   "devDependencies": {
     "@commitlint/cli": "^16.0.2",
     "@commitlint/config-conventional": "^16.0.0",
-    "eslint": "^8.6.0",
+    "eslint": "7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "graphql": "^16.2.0",
