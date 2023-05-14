@@ -1,10 +1,14 @@
 {
   "name": "nextjs-plugin-graphql",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Frank Cooke",
   "license": "MIT",
   "description": "Next.js plugin to preprocess GraphQL Documents",
-  "keywords": ["nextjs", "webpack", "graphql"],
+  "keywords": [
+    "nextjs",
+    "webpack",
+    "graphql"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/platypusrex/nextjs-plugin-graphql.git"
