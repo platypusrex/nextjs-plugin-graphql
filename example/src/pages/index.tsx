@@ -1,6 +1,6 @@
-import type { GetServerSideProps, NextPage } from 'next'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import type { GetServerSideProps, NextPage } from 'next';
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
 import { UsersQuery, useUsersQuery } from '../types/generated';
 import { addApolloState, initializeApollo } from '../lib/apollo';
 import USERS_QUERY from '../gql/usersQuery.graphql';
@@ -30,10 +30,9 @@ const Home: NextPage = () => {
           ))}
         </div>
       </main>
-
     </div>
-  )
-}
+  );
+};
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const apolloClient = initializeApollo();
@@ -44,4 +43,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   });
 };
 
-export default Home
+export default Home;
