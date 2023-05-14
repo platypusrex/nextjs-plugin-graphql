@@ -1,10 +1,6 @@
 import { useMemo } from 'react';
 import type { AppProps } from 'next/app';
-import {
-  ApolloClient,
-  InMemoryCache,
-  NormalizedCacheObject,
-} from '@apollo/client';
+import { ApolloClient, InMemoryCache, NormalizedCacheObject } from '@apollo/client';
 import merge from 'deepmerge';
 import isEqual from 'lodash/isEqual';
 
@@ -15,15 +11,13 @@ let apolloClient: ApolloClient<NormalizedCacheObject> | undefined;
 const createApolloClient = () =>
   new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    uri: 'http://localhost:3008/api/graphql',
+    uri: 'http://localhost:3000/api/graphql',
     cache: new InMemoryCache(),
   });
 
 type InitialState = NormalizedCacheObject | undefined;
 
-export const initializeApollo = (
-  initialState: NormalizedCacheObject | null = null,
-) => {
+export const initializeApollo = (initialState: NormalizedCacheObject | null = null) => {
   const _apolloClient = apolloClient ?? createApolloClient();
 
   // If your page has Next.js data fetching methods that use Apollo Client, the initial state

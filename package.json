@@ -14,6 +14,7 @@
   },
   "main": "index.js",
   "files": [
+    "types/*",
     "index.js"
   ],
   "scripts": {
@@ -22,7 +23,7 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "@graphql-tools/webpack-loader": "^6.6.1"
+    "@graphql-tools/webpack-loader": "^6.7.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.0.2",
