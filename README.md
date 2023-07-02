@@ -41,19 +41,6 @@ module.exports = withGraphql({
 });
 ```
 
-Or with [`next-compose-plugins`](https://github.com/cyrilwanner/next-compose-plugins) when composing multiple plugins
-
-```js
-// next.config.js
-const withPlugins = require("next-compose-plugins");
-const withGraphql = require("nextjs-plugin-graphql");
-
-module.exports = withPlugins([
-  withGraphql
-  // your other plugins here
-]);
-```
-
 And now in your components you can import `.graphql` | `.gql` files
 
 ```graphql
@@ -98,7 +85,7 @@ Check out the [documentation](https://github.com/ardatan/graphql-tools/blob/3846
 Example with options:
 
 ```js
-module.exports = withSvgr({
+module.exports = withGraphql({
   graphqlOptions: {
     noDescription: true,
     esModule: true,
