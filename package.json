@@ -21,23 +21,27 @@
     "types/*",
     "index.js"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "lint": "eslint \"index.js\"",
     "lint:fix": "eslint --fix",
-    "release": "standard-version"
+    "version": "changeset version",
+    "release": "yarn lint && changeset publish && git push --follow-tags"
   },
   "dependencies": {
-    "@graphql-tools/webpack-loader": "^6.7.2"
+    "@graphql-tools/webpack-loader": "^7.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.0.2",
-    "@commitlint/config-conventional": "^16.0.0",
-    "eslint": "7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "graphql": "^16.2.0",
-    "husky": "^7.0.4",
-    "prettier": "^2.5.1",
-    "standard-version": "^9.3.2"
+    "@changesets/cli": "^2.26.2",
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "eslint": "8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "graphql": "^16.7.1",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.8"
   }
 }
