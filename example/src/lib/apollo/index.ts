@@ -11,7 +11,7 @@ let apolloClient: ApolloClient<NormalizedCacheObject> | undefined;
 const createApolloClient = () =>
   new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    uri: 'http://localhost:3000/api/graphql',
+    uri: 'http://localhost:3001/api/graphql',
     cache: new InMemoryCache(),
   });
 

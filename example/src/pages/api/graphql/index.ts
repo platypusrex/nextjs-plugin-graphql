@@ -26,7 +26,6 @@ const resolvers = {
   },
 };
 
-// @ts-ignore
 const server = new ApolloServer({ typeDefs, resolvers });
 
 export default startServerAndCreateNextHandler(server);
