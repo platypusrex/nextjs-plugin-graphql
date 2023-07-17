@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2
+
+### Patch Changes
+
+- 32aaf01: chore(deps): bump semver from 5.7.1 to 5.7.2
+
 ## 1.1.1
 
 ### Patch Changes
