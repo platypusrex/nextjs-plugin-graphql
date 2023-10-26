@@ -1,39 +1,34 @@
-name: Release
-
-on:
-  push:
-    branches:
-      - master
-
-concurrency: ${{ github.workflow }}-${{ github.ref }}
-
+name: Node.js CI
+on: [push]
 jobs:
-  release:
-    name: Release
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+  build:
+    name: Install deps and lint on Node ${{ matrix.node }} and ${{ matrix.os }}
 
-      - name: Setup Node.js 18
-        uses: actions/setup-node@v3
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node: [16.14.x, 18.x]
+        os: [ubuntu-latest]
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.2
+        id: pnpm-install
         with:
-          node-version: 18
+          version: 8
+          run_install: false
+
+      - name: Use Node ${{ matrix.node }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: yarn
+        run: pnpm install --no-frozen-lockfile
 
-      - name: Create PR or Publish release
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          version: yarn run version
-          commit: 'chore: update versions'
-          title: 'chore: update versions'
-          publish: yarn run release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Lint
+        run: pnpm run lint
