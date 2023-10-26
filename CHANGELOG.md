@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.3
+
+### Patch Changes
+
+- b1cd0ed: Dep updates and workflow fixes.
+
+  fix: release workflow
+
+- a338027: Updates dev dependencies and exmaple application dependencies.
+- 5164a3c: Removing yarn.lock
+
 ## 1.1.2
 
 ### Patch Changes
