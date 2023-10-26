@@ -2,7 +2,7 @@ name: Node.js CI
 on: [push]
 jobs:
   build:
-    name: Lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
+    name: Install deps and test on Node ${{ matrix.node }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
     strategy:
