@@ -6,8 +6,12 @@
   "description": "Next.js plugin to preprocess GraphQL Documents",
   "keywords": [
     "nextjs",
+    "nextjs-config",
+    "nextjs-graphql",
     "webpack",
-    "graphql"
+    "webpack-plugin",
+    "graphql",
+    "gql"
   ],
   "repository": {
     "type": "git",
@@ -16,32 +20,47 @@
   "bugs": {
     "url": "https://github.com/platypusrex/nextjs-plugin-graphql/issues"
   },
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "files": [
     "types/*",
-    "index.js"
+    "dist/**/*"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "lint": "eslint \"index.js\"",
-    "lint:fix": "eslint --fix",
+    "build": "pnpm clean && concurrently \"node build.js\" \"pnpm build:dts\"",
+    "build:dts": "npx -p typescript tsc src/index.js --allowJs --skipLibCheck --removeComments --declaration --emitDeclarationOnly --outDir dist",
+    "clean": "rimraf dist",
+    "lint": "eslint \"src/index.js\"",
+    "lint:fix": "eslint \"src/index.js\" --fix",
     "version": "changeset version",
-    "release": "yarn lint && changeset publish && git push --follow-tags"
+    "release": "yarn lint && changeset publish && git push --follow-tags",
+    "prepare": "husky"
   },
   "dependencies": {
     "@graphql-tools/webpack-loader": "^7.0.0"
   },
+  "peerDependencies": {
+    "next": ">=12.x"
+  },
   "devDependencies": {
-    "@changesets/cli": "^2.26.2",
-    "@commitlint/cli": "^18.1.0",
-    "@commitlint/config-conventional": "^18.1.0",
-    "eslint": "8.52.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "graphql": "^16.8.1",
-    "husky": "^8.0.3",
-    "prettier": "^3.0.3"
+    "@changesets/cli": "^2.27.11",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^9.17.0",
+    "concurrently": "^9.1.0",
+    "esbuild": "^0.24.2",
+    "eslint": "9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "graphql": "^16.10.0",
+    "husky": "^9.1.7",
+    "next": "^15.1.2",
+    "prettier": "^3.4.2",
+    "rimraf": "^6.0.1"
   }
 }

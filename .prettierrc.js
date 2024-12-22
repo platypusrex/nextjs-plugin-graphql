@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   useTabs: false,
   printWidth: 100,
   singleQuote: true,
