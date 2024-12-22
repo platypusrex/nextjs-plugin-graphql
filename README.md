@@ -9,10 +9,16 @@
 npm
 
 ```
-npm install --save nextjs-plugin-graphql
+npm add nextjs-plugin-graphql
 ```
 
-or yarn
+pnpm
+
+```
+pnpm add nextjs-plugin-graphql
+```
+
+yarn
 
 ```
 yarn add nextjs-plugin-graphql
@@ -21,20 +27,31 @@ yarn add nextjs-plugin-graphql
 
 Create a `next.config.js` in your project
 
-```js
-// next.config.js
-const withGraphql = require('nextjs-plugin-graphql');
+```ts
+// next.config.ts
+import type { NextConfig } from 'next';
+import withGraphql from 'nextjs-plugin-graphql';
 
-module.exports = withGraphql();
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+};
+
+export default withGraphql(nextConfig);
 ```
 
 Optionally add Next.js configuration as a parameter
 
-```js
-// next.config.js
-const withGraphql = require('nextjs-plugin-graphql');
+```ts
+// next.config.ts
+import type { NextConfig } from 'next';
+import withGraphql from'nextjs-plugin-graphql';
 
-module.exports = withGraphql({
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+};
+
+export default withGraphql({
+  reactStrictMode: true,
   webpack(config, options) {
     return config;
   },
@@ -55,12 +72,9 @@ query Users {
 ```js
 import USERS_QUERY from './usersQuery.graphql';
 
-export default () => {
-  const { loading, error, data } = useQuery(USERS_QUERY);
-
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
-
+export default async function Page() {
+  const data = await gqlClient.request(USERS_QUERY);
+  
   return (
     <div>
       <ul>
@@ -84,8 +98,15 @@ Check out the [documentation](https://github.com/ardatan/graphql-tools/blob/3846
 
 Example with options:
 
-```js
-module.exports = withGraphql({
+```ts
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+  reactStrictMode: true,  
+};
+
+export default withGraphql({
+  ...nextConfig,
   graphqlOptions: {
     noDescription: true,
     esModule: true,
@@ -103,7 +124,7 @@ reference the definitions there. There shouldn't be any need to adjust your `tsc
 for your project.
 
 `src/typings/index.d.ts`
-```js
+```ts
 /// <reference types="nextjs-plugin-graphql/types/graphql" />
 ```
 

@@ -26,7 +26,12 @@ const schema = createSchema({
   },
 });
 
-const { handleRequest } = createYoga({ schema })
+const { handleRequest } = createYoga<Record<string, any>>({
+  schema,
+  graphqlEndpoint: '/api/graphql',
+  fetchAPI: { Response },
+});
 
-export const GET = handleRequest;
-export const POST = handleRequest;
+export const GET = (req: Request) => handleRequest(req, {});
+export const POST = (req: Request) => handleRequest(req, {});
+export const OPTIONS = (req: Request) => handleRequest(req, {});
