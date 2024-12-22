@@ -37,9 +37,10 @@
     "clean": "rimraf dist",
     "lint": "eslint \"src/index.js\"",
     "lint:fix": "eslint \"src/index.js\" --fix",
+    "prepare": "husky",
+    "prerelease": "pnpm run lint && pnpm run build",
     "version": "changeset version",
-    "release": "yarn lint && changeset publish && git push --follow-tags",
-    "prepare": "husky"
+    "release": "pnpm run prerelease && changeset publish && git push --follow-tags"
   },
   "dependencies": {
     "@graphql-tools/webpack-loader": "^7.0.0"
